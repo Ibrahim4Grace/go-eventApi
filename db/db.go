@@ -40,6 +40,20 @@ func InitDB() {
 }
 
 func createTables() {
+	createUsersTable := `
+	CREATE TABLE IF NOT EXISTS users (
+		id INTEGER PRIMARY KEY AUTOINCREMENT,
+		email TEXT NOT NULL UNIQUE NOT NULL,
+		password TEXT NOT NULL
+		)
+		`
+	_, err := DB.Exec(createUsersTable)
+	if err != nil {
+		panic(fmt.Sprintf("Could not create users table: %v", err))
+	}
+
+	fmt.Println("Users database tables created successfully")
+
 	createEventsTable := `
         CREATE TABLE IF NOT EXISTS events (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -47,14 +61,16 @@ func createTables() {
             description TEXT NOT NULL,
             location TEXT NOT NULL,
             dateTime DATETIME NOT NULL,
-            user_id INTEGER
+            user_id INTEGER,
+			FOREIGN KEY (user_id) REFERENCES users(id)
         );
     `
+	// the foreign key will ref user id from the users table
 
-	_, err := DB.Exec(createEventsTable)
+	_, err = DB.Exec(createEventsTable)
 	if err != nil {
 		panic(fmt.Sprintf("Could not create events table: %v", err))
 	}
 
-	fmt.Println("Database tables created successfully")
+	fmt.Println("Events database tables created successfully")
 }
