@@ -49,10 +49,8 @@ func createEvents(context *gin.Context) {
 		return
 	}
 
-	//user dummy value to save the id for now
-	event.ID = 1
-	event.UserID = 1
-
+	userId := context.GetInt64("userId")
+	event.UserID = userId
 	err = event.Save()
 	if err != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{"message": "Could not create events. Try again later."})

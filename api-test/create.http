@@ -2,17 +2,18 @@ POST http://localhost:8080/signup
 Content-Type: application/json
 
 {
-    "email": "ibrahim4grace2@gmail.com",
+    "email": "test2@gmail.com",
     "password": "123456"
 }
 
 ###
 POST http://localhost:8080/events
 Content-Type: application/json
+ ### Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQGdtYWlsLmNvbSIsImV4cCI6MTczNTAzMTk0NCwidXNlcklkIjoyfQ.x_irfDNyFCMsrsLcsLgmfvjRFB1VUUte7u_f5LkMTko
 
 {
     "Name": "test event",
-    "Description": "a second test event",
+    "Description": "test event",
         "Location": "agege test event",
         "DateTime": "2025-01-01T15:30:00.000Z"
 }
