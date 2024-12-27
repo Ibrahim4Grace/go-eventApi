@@ -9,10 +9,10 @@ Content-Type: application/json
 ###
 POST http://localhost:8080/events
 Content-Type: application/json
- ### Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQGdtYWlsLmNvbSIsImV4cCI6MTczNTAzMTk0NCwidXNlcklkIjoyfQ.x_irfDNyFCMsrsLcsLgmfvjRFB1VUUte7u_f5LkMTko
+ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQGdtYWlsLmNvbSIsImV4cCI6MTczNTMyNDU4NCwidXNlcklkIjoyfQ.f4eejXrxEwynxLzGtNQG7dDMK2y0aswopxvUx-y-IkI
 
 {
-    "Name": "test event",
+    "Name": "3st test event",
     "Description": "test event",
         "Location": "agege test event",
         "DateTime": "2025-01-01T15:30:00.000Z"

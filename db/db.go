@@ -52,7 +52,7 @@ func createTables() {
 		panic(fmt.Sprintf("Could not create users table: %v", err))
 	}
 
-	fmt.Println("Users database tables created successfully")
+	fmt.Println("Users tables created successfully")
 
 	createEventsTable := `
         CREATE TABLE IF NOT EXISTS events (
@@ -72,5 +72,22 @@ func createTables() {
 		panic(fmt.Sprintf("Could not create events table: %v", err))
 	}
 
-	fmt.Println("Events database tables created successfully")
+	fmt.Println("Events tables created successfully")
+
+	createRegistrationsTable := `
+	CREATE TABLE IF NOT EXISTS registrations (
+		id INTEGER PRIMARY KEY AUTOINCREMENT,
+	    event_id INTEGER NOT NULL,
+        user_id INTEGER NOT NULL,
+		FOREIGN KEY (event_id) REFERENCES events(id),
+		FOREIGN KEY (user_id) REFERENCES users(id)
+		)
+	`
+
+	_, err = DB.Exec(createRegistrationsTable)
+	if err != nil {
+		panic(fmt.Sprintf("Could not create registration table: %v", err))
+	}
+
+	fmt.Println("Registration tables created successfully")
 }
